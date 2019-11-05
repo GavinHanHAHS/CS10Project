@@ -1,0 +1,15 @@
+div {
+  width: 600px;
+  margin: auto;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+}
+
+body {
+  background-color: oldlace;
+}
+
+.noDisplay {
+  display: none;
+}

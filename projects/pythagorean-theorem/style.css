@@ -1,0 +1,68 @@
+div.main {
+  width: 600px;
+  background-color: white;
+  padding: 50px 75px;
+  border-radius: 15px;
+  margin: auto;
+}
+
+div.box {
+  width: 500px;
+  padding: 10px 50px;
+  background-color: rgb(235, 235, 235);
+  border: 2px solid grey;
+}
+
+body {
+  background-color: maroon;
+}
+
+p {
+  font-family: 'Open sans', sans-serif;
+}
+
+p.image {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Maven Pro', sans-serif;
+  color: maroon;
+}
+
+h1 {
+  margin-top: 0;
+  color: #808000;
+}
+
+img:hover {
+  border: 1px solid black;
+  margin: -1px;
+}
+
+span.calculate {
+  border: 1px solid black;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+span.question {
+  color: maroon;
+  font-weight: bold;
+}
+
+button.calculateButton {
+  background-color: #808000;
+  color: white;
+  font-variant: small-caps;
+  font-size: 18px;
+  padding: 5px 15px;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* * {
+    border: 1px solid green;
+} */
