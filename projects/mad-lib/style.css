@@ -1,0 +1,31 @@
+div.main {
+  text-align: center;
+  width: 600px;
+  margin: auto;
+  padding: 10px 20px;
+  padding-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+div.resultBox {
+  width: 600px;
+  margin-top: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(186, 173, 254, 0.9);
+}
+
+p.resultText {
+  color: darkslategrey;
+}
+
+span.option {
+  font-weight: bold;
+  color: blue;
+}
+
+body {
+  background-color: rgb(186, 173, 254);
+}
