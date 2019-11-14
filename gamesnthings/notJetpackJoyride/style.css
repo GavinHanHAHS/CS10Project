@@ -1,27 +1,14 @@
-div.main {
-  width: 900px;
-  height: 800px;
-  background-color: rgba(255, 255, 255, 0.8);
-  margin: auto;
-  text-align: center;
-  margin-top: 12px;
-}
-
-body {
-  background-color: navy;
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 canvas {
-  margin-top: 15px;
+  display: flex;
   border: 1px solid grey;
-  background-color: white;
-}
-
-button {
-  margin: 10px 20px;
-  width: 60px;
-  padding: 10px;
+  margin: auto;
+  margin-top: 40px;
 }
 
 .header-container {

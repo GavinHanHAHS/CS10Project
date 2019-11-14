@@ -4,6 +4,7 @@ div.main {
   padding: 50px 75px;
   border-radius: 15px;
   margin: auto;
+  margin-top: 12px;
 }
 
 div.box {
@@ -61,8 +62,33 @@ button.calculateButton {
 
 body {
   margin-bottom: 60px;
+  margin: 0;
 }
 
 /* * {
     border: 1px solid green;
 } */
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #0B3C49;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-link {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}

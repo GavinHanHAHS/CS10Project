@@ -1,7 +1,9 @@
 "use strict";
 
 document.getElementById("doodooface").addEventListener("click", executePlanDooDoo);
+document.getElementById("biggiecheese").addEventListener("click", executeplanCheese);
 
+let biggiecheese = 0;
 let doodooState = 0;
 
 function executePlanDooDoo() {
@@ -16,4 +18,14 @@ function executePlanDooDoo() {
     doodooState = 0;
   }
   
+}
+
+function executeplanCheese() {
+  if(biggiecheese == 0) {
+    biggiecheese = 1;
+    document.getElementById("biggiecheese").src = "media/BiggieCheese.jpg";
+  } else if(biggiecheese == 1) {
+    biggiecheese = 0;
+    document.getElementById("biggiecheese").src = "media/sunrise.png";
+  }
 }
