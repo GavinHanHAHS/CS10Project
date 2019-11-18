@@ -1,0 +1,41 @@
+div.main {
+  width: 600px;
+  margin: auto;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+  margin-top: 12px;
+}
+
+body {
+  background-color: oldlace;
+  margin: 0;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #0B3C49;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-link {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,30 @@
+body {
+  background-color: purple;
+}
+
+div.main {
+  padding-top: 50px;
+  text-align: center;
+  width: 600px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.9)
+}
+
+div.ItemGen {
+  width: 200px;
+  margin: auto;
+  text-align: left;
+}
+
+p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+p.bottom {
+  margin-bottom: 100px;
+}
+
+ul {
+  padding-bottom: 20px;
+}

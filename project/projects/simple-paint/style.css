@@ -1,0 +1,49 @@
+div.main {
+  width: 900px;
+  height: 800px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  text-align: center;
+  margin-top: 12px;
+}
+
+body {
+  background-color: navy;
+  margin: 0;
+}
+
+canvas {
+  margin-top: 15px;
+  border: 1px solid grey;
+  background-color: white;
+}
+
+button {
+  margin: 10px 20px;
+  width: 60px;
+  padding: 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #0B3C49;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-link {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Quiz</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Chilanka|Manjari|Raleway|Slabo+27px&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header-container">
+    <div class="header">
+      <a href="../../index.html" class="header-link">Home</a>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <h1>RANDOM QUIZ</h1>
+    <hr>
+
+    <h2>Question 1</h2>
+    <p>What country uses the flag below?
+      (<a href="https://www.canada.ca/en.html" target="_blank">HINT</a>)
+    </p>
+    <img class="black-border" src="media/canada-27003_640.png" alt="Canada Flag" width="400px">
+    <p class="italic">Answer: <input type="text" id="canadaInput"> </p>
+    <hr>
+
+    <h2>Question 2</h2>
+    <p>Which of the following is <strong>not</strong> a piece used in chess?
+      <ul>
+        <li class="red">Pawn</li>
+        <li class="orange">Knight</li>
+        <li class="yellow">Cardinal</li>
+        <li class="green">Rook</li>
+        <li class="blue">Queen</li>
+        <li class="violet">King</li>
+      </ul>
+    </p>
+    <p class="italic">Answer: <input type="text" id="chessInput"> </p>
+    <hr>
+
+    <h2>Question 3</h2>
+    <p>Who is Po <em>(The Kung Fu Panda)</em> scared of in this audio clip?</p>
+    <img src="media/kungfupanda.png" alt="Kung fu panda">
+    <p>
+      <audio controls>
+        <source src="media/kung-fu-panda-scared.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag
+      </audio>
+    </p>
+    <p class="italic">Answer: <input type="text" id="kungfupanda"> </p>
+    <hr>
+
+    <h2>Question 4</h2>
+    <p id="100text">Click this button 100 times</p>
+    <button type="button" id="1HundredButton">Click this button</button>
+
+    <hr>
+
+    <h2>Question 5</h2>
+    <p>What is the conjugation for "vendre" with "je"?</p>
+    <ul>
+      <li>Vendre</li>
+      <li>Vend</li>
+      <li>Vends</li>
+      <li>Vendissons</li>
+      <li>Vendissez</li>
+    </ul>
+    <p class="italic">Answer: <input type="text" id="frenchInput"> </p>
+
+    <h2>Results</h2>
+
+    <p id="results"><button type="button" id="mark-btn">Mark Quiz</button> Your score is __ / 5 (__ %)</p>
+
+  </div>
+
+</body>
+
+</html>
+
+<script src="main.js"></script>

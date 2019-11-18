@@ -1,0 +1,136 @@
+/* * {
+  border: 1px solid green;
+} */
+
+body {
+  background-color: oldlace;
+  /* background-image: url(media/question-marks-background-colourful-small.jpg); */
+  background: url(media/question-marks-background.jpg) no-repeat center fixed;
+  background-size: cover;
+  margin-left: 20px;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(83, 182, 165);
+  margin-left: 20px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 64px;
+}
+
+h2 {
+  text-decoration: underline coral double;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: blueviolet;
+  text-decoration: underline;
+  font-family: 'Chilanka', cursive;
+}
+
+p, ul, input {
+  font-family: 'Manjari', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+button {
+  font-family: 'Slabo 27px', serif;
+  font-size: 32px;
+  background-color: navajowhite;
+  color: grey;
+  border: 2px solid black;
+  padding: 8px 15px;
+  margin-right: 50px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: lightcyan;
+  color: darkslategrey;
+}
+
+button:active {
+  background-color: rgb(106, 255, 255);
+}
+
+div.main {
+  background-color: rgba(255, 255, 254, 0.9);
+  padding: 20px 150px 100px;
+  width: 600px;
+  margin: auto;
+}
+
+hr {
+  margin-bottom: 45px;
+  margin-top: 30px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: rgb(161, 161, 0);
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.violet{
+  color: violet;
+}
+
+.black-border {
+  border: 1px solid black;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  background-color: #0B3C49;
+  padding: 0;
+}
+
+.header {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: #0B3C49;
+}
+
+.header-link {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+}
+
+.header-link:hover {
+  color: cyan;
+  font-family: "Comic Sans MS", sans-serif;
+  text-decoration: none;
+}
