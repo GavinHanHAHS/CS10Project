@@ -16,6 +16,19 @@ let player = {
   Img: document.getElementById("playerImg")
 }
 
+let bullet = {
+  x: 0,
+  y: 0,
+  angle: 0,
+  direction: 0,
+  speed: 0
+}
+
+let backgroundobjs = {
+  cautionlines: 200,
+  cautionspeed: 5
+}
+
 let gameState = 0;
 
 let keydown = false;
@@ -72,19 +85,38 @@ function draw() {
   if(gameState == 1) {
     playerMovement();
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "LightGray";
     ctx.fillRect(0, 0, cnv.width, cnv.height);
+
+    ctx.fillStyle = "yellow";
+    //Rotate to make a diagonal line
+    ctx.rotate(10 * Math.PI / 180);
+    ctx.fillRect(backgroundobjs.cautionlines, -150, 25, 800);
+    ctx.fillRect(backgroundobjs.cautionlines + 50, -170, 25, 850);
+    //Reset rotation
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.font = "50px Arial";
+    ctx.fillText("CAUTION", backgroundobjs.cautionlines + 75, 150);
 
     ctx.fillStyle = "DimGrey";
     ctx.fillRect(0, 440, cnv.width, 100);
+    ctx.fillRect(0, 0, cnv.width, 15);
 
     ctx.fillStyle = "grey";
-    ctx.fillRect(0, 430, cnv.width, 30);
+    ctx.fillRect(0, 430, cnv.width, 40);
+    ctx.fillRect(0, 10, cnv.width, 25);
 
     //ctx.fillStyle = "black";
     //ctx.fillRect(player.x, player.y, 20, 40);
 
     ctx.drawImage(player.Img, player.x, player.y, player.width, player.height);
+
+    backgroundobjs.cautionlines -= backgroundobjs.cautionspeed;
+    if(backgroundobjs.cautionlines <= -350) {
+      backgroundobjs.cautionlines = 950;
+      backgroundobjs.cautionspeed == 0;
+      setTimeout(getRandomBackgroundobj, 3000);
+    }
   }
 
 
@@ -112,6 +144,12 @@ function playerMovement() {
 
   console.log("Speed: " + player.speed);
   console.log("Y Pos: " + player.y);
+}
+
+function getRandomBackgroundobj() {
+  //get random number
+  //use random number to select random background obj
+  //change the background obj's speed in the main "draw" loop (which will be 0)
 }
 
 function keydownHandler(event) {
