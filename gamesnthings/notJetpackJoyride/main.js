@@ -187,7 +187,7 @@ function draw() {
     }
     if(bullet.one > 0) {
       bullet.one += bullet.speed;
-      if(bullet.one > cnv.height - floorHeight) {
+      if(bullet.one > cnv.height - (floorHeight + 20)) {
         if(keydown && player.onground == false) {
           bullet.one = player.y + 60;
         } else {
