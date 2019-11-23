@@ -28,10 +28,12 @@ let backgroundobjs = {
 }
 
 let bullet = {
-  speed: 15,
+  Img: document.getElementById("bulletImg"),
+  speed: 10,
   one: -50,
   onecanshoot: true,
-  two: -50
+  two: -50,
+  twocanshoot: true
 }
 
 let gameState = 0;
@@ -110,7 +112,7 @@ function draw() {
       //dots!
       ctx.fillRect(backgroundobjs.metalline2 + 5, 60 + (i * 50), 2, 2);
     }
-  
+   
     
 
     //Caution Lines
@@ -179,7 +181,7 @@ function draw() {
     ctx.fillRect(0, 10, cnv.width, 25);
 
     //Bullets!
-    ctx.fillStyle = "yellow"
+    ctx.fillStyle = "Gold"
     if(player.y < cnv.height - (player.height + floorHeight) && keydown && bullet.onecanshoot) {
       bullet.onecanshoot = false;
       player.onground = false;
@@ -199,7 +201,10 @@ function draw() {
     
     //Kinda works? Try using setInterval() instead once using a bunch more bullets.
 
-    ctx.fillRect(player.x, bullet.one, 10, 20);
+    //ctx.fillRect(player.x, bullet.one, 10, 20);
+    ctx.drawImage(bullet.Img, player.x, bullet.one, 20, 30);
+    //ctx.drawImage(player.Img, player.x, bullet.one, 20, 40);
+    
     //old player
     //ctx.fillStyle = "black";
     //ctx.fillRect(player.x, player.y, 20, 40);
@@ -246,11 +251,11 @@ function getRandomBackgroundobj() {
     case 1:
       //Caution Lines
       backgroundobjs.cautionspeed = 5;
-      break
+      break;
     case 2:
       //Window
       backgroundobjs.windowspeed = 5;
-  } 
+  }
 }
 
 function keydownHandler(event) {
