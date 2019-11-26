@@ -30,6 +30,7 @@ let backgroundobjs = {
 let bullet = {
   Img: document.getElementById("bulletImg"),
   speed: 10,
+  speed2: 13,
   one: -50,
   onecanshoot: true,
   two: -50,
@@ -37,13 +38,13 @@ let bullet = {
 }
 
 let gameState = 0;
-
 let keydown = false;
 let mouseIsPressed = false;
-
 let mouseX;
 let mouseY;
 let floorHeight = 50;
+
+let obstacleTimer = 100;
 
 //Event Listeners
 document.addEventListener("keydown", keydownHandler);
@@ -55,14 +56,15 @@ document.addEventListener("mousemove", mousemoveHandler);
 
 /*
 To Do List
- - Make Main Menu Look Pretty (polish)
  - Obstacles to dodge
- - more background objects (polish)
  - Character Spritesheet
- - bullets from jetpack?
  - Game Over Screen
-*/
 
+ =============Polish===============
+ - Make Main Menu good
+ - More background objects
+ - Make bullets look better lol
+*/
 
 requestAnimationFrame(draw);
 
@@ -71,6 +73,7 @@ function draw() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
+  //Main Menu!===========================================================================
   if(gameState == 0) {
     ctx.fillStyle = "lime";
     ctx.fillRect(cnv.width/2 - 30, cnv.height/2 - 20, 60, 40);
@@ -90,12 +93,14 @@ function draw() {
   }
 
   if(gameState == 1) {
+    //player movement===================================================================
     playerMovement();
 
+    //background=======================================================================
     ctx.fillStyle = "LightGray";
     ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-    //Background Details
+    //Background Details!=================================================================
     //Draw 'em
 
     //Metal Line(s)
@@ -170,6 +175,8 @@ function draw() {
       backgroundobjs.metalline2 = 800;
     }
 
+
+    //SURFACES====================================================
     //Base top & bottom
     ctx.fillStyle = "DimGrey";
     ctx.fillRect(0, 440, cnv.width, 100);
@@ -180,7 +187,7 @@ function draw() {
     ctx.fillRect(0, 430, cnv.width, 40);
     ctx.fillRect(0, 10, cnv.width, 25);
 
-    //Bullets!
+    //Bullets!=========================================================
     ctx.fillStyle = "Gold"
     if(player.y < cnv.height - (player.height + floorHeight) && keydown && bullet.onecanshoot) {
       bullet.onecanshoot = false;
@@ -193,16 +200,31 @@ function draw() {
         if(keydown && player.onground == false) {
           bullet.one = player.y + 60;
         } else {
-          bullet.one = -20;
+          bullet.one = -50;
           bullet.onecanshoot = true;
         }
       }
     }
-    
-    //Kinda works? Try using setInterval() instead once using a bunch more bullets.
+    if(player.y < 250 && bullet.twocanshoot && keydown) {
+      bullet.twocanshoot = false;
+      bullet.two = player.y + 60;
+    }
+    if(bullet.two > 0) {
+      //bullet2 travels at a different speed to give illusion of more bulletsw
+      bullet.two += bullet.speed2;
+      if(bullet.two > cnv.height - (floorHeight + 20)) {
+        if(keydown && player.y < 250) {
+          bullet.two = player.y + 60;
+        } else {
+          bullet.two = -50;
+          bullet.twocanshoot = true;
+        }
+      }
+    }
 
     //ctx.fillRect(player.x, bullet.one, 10, 20);
     ctx.drawImage(bullet.Img, player.x, bullet.one, 20, 30);
+    ctx.drawImage(bullet.Img, player.x, bullet.two, 20, 30);
     //ctx.drawImage(player.Img, player.x, bullet.one, 20, 40);
     
     //old player
@@ -210,6 +232,17 @@ function draw() {
     //ctx.fillRect(player.x, player.y, 20, 40);
 
 
+    //OBSTACLES!==============================================
+    if(obstacleTimer < 0) {
+      //generate obstacle
+
+      //set obstacletimer to a new random number
+    } else {
+      obstacleTimer--;
+    }
+
+
+    //Actually draw the player!===============================================
     ctx.drawImage(player.Img, player.x, player.y, player.width, player.height);
   }
 
