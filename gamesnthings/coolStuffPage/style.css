@@ -17,6 +17,15 @@ div.main {
   margin: auto;
 }
 
+div.contentItem {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 hr {
   margin: 0;
   height: 10px;
