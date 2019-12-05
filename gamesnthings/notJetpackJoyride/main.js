@@ -27,6 +27,15 @@ let backgroundobjs = {
   windowspeed: 0
 }
 
+let lasers = {
+  x1: 900,
+  y1: 200,
+  speed1: 0,
+  x2: 900,
+  y2: 200,
+  speed2: 0
+}
+
 let bullet = {
   Img: document.getElementById("bulletImg"),
   speed: 10,
@@ -44,7 +53,7 @@ let mouseX;
 let mouseY;
 let floorHeight = 50;
 
-let obstacleTimer = 100;
+let obstacleTimer = 50;
 
 //Event Listeners
 document.addEventListener("keydown", keydownHandler);
@@ -210,7 +219,7 @@ function draw() {
       bullet.two = player.y + 60;
     }
     if(bullet.two > 0) {
-      //bullet2 travels at a different speed to give illusion of more bulletsw
+      //bullet2 travels at a different speed to give illusion of more bullets
       bullet.two += bullet.speed2;
       if(bullet.two > cnv.height - (floorHeight + 20)) {
         if(keydown && player.y < 250) {
@@ -235,15 +244,52 @@ function draw() {
     //OBSTACLES!==============================================
     if(obstacleTimer < 0) {
       //generate obstacle
+      let random = Math.floor(Math.random() * 2) + 1;
+      console.log(random);
+      switch(random) {
+        case 1:
+          //horizontal laser
+          lasers.speed1 = 5;
+          break;
+        case 2:
+          //vertical laser
+          lasers.speed2 = 5;
+          break;
+      }
+      
 
       //set obstacletimer to a new random number
+      obstacleTimer = 100;
     } else {
       obstacleTimer--;
     }
 
+    //Drawing obstacles
+    //horizontal laser
+    ctx.fillStyle = "yellow";
+    lasers.x1 -= lasers.speed1;
+    ctx.fillRect(lasers.x1, lasers.y1, 200, 20);
+    if(lasers.x1 + 200 < -30) {
+      lasers.speed1 = 0;
+      lasers.x1 = 900;
+      lasers.y1 = Math.random() * 401 + 100;
+    }
+
+    //vertical laser
+    lasers.x2 -= lasers.speed2;
+    ctx.fillRect(lasers.x2, lasers.y2, 20, 200);
+    if(lasers.x2 + 20 < -30) {
+      lasers.speed2 = 0;
+      lasers.x2 = 900;
+      lasers.y2 = Math.random() * 301 + 100;
+    }
 
     //Actually draw the player!===============================================
     ctx.drawImage(player.Img, player.x, player.y, player.width, player.height);
+  }
+
+  if(gameState == 3) {
+
   }
 
   requestAnimationFrame(draw);
