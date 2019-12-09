@@ -2,6 +2,11 @@
   font-family: Roboto, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 body, div, h1, p, h3 {
   margin: 0;
 }
@@ -11,10 +16,19 @@ body {
 }
 
 div.main {
-  width: 900px;
-  height: 800px;
+  width: 818px;
+  height: 810px;
   background-color: white;
   margin: auto;
+}
+
+div.content {
+  display: flex;
+  flex-direction: row;
+}
+
+div.column1 {
+  padding-left: 1px;
 }
 
 div.contentItem {
@@ -24,6 +38,15 @@ div.contentItem {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+div.contentItem.mspaint {
+  background-color: yellow;
+}
+
+div.contentItem.googol {
+  background-color: blue;
 }
 
 hr {
