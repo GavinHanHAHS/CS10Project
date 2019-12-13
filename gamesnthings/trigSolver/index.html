@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  
+
+<head>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <title>Trig Function Solver</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header-container">
+    <div class="header">
+      <div><a href="../coolStuffPage" class="header-link">Back</a></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <p><img src="../../media/trigtriangle.png"></p>
+    <p>Opposite: <input type="text" id="opp"></p>
+    <p>Hypotenuse: <input type="text" id="hyp"></p>
+    <p>Adjacent: <input type="text" id="adj"></p>
+    <p>Theta: <input type="text" id="theta"></p>
+    <p>
+      Select what to solve for:
+      <select id="solveFor">
+        <option value="0"></option>
+        <option value="1">Hypotenuse</option>
+        <option value="2">Opposite</option>
+        <option value="3">Adjacent</option>
+        <option value="4">Other Angle</option>
+      </select>
+    </p>
+    <p id="text"> </p>
+    <button id="submit">Solve!</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+
+
+
+</html>

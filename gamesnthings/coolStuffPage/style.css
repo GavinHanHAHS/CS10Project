@@ -49,6 +49,10 @@ div.contentItem.googol {
   background-color: blue;
 }
 
+div.contentItem.trigSolve {
+  background-color: red;
+}
+
 hr {
   margin: 0;
   height: 10px;
