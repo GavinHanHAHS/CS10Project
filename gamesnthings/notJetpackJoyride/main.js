@@ -300,7 +300,8 @@ function playerMovement() {
   if(keydown) {
     player.speed += 0.6;
   }
-  player.speed -= 0.25 ;
+
+  player.speed -= 0.25;
 
   player.y -= player.speed;
 
