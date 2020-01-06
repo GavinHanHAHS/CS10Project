@@ -33,7 +33,8 @@ let lasers = {
   speed1: 0,
   x2: 900,    //vertical
   y2: 200,
-  speed2: 0
+  speed2: 0,
+  laserSpeed: 5
 }
 
 let bullet = {
@@ -54,6 +55,10 @@ let mouseY;
 let floorHeight = 50;
 
 let obstacleTimer = 50;
+let speedTimer = 0;
+
+let scoreTimer = 0;
+let score = 0;
 
 //Event Listeners
 document.addEventListener("keydown", keydownHandler);
@@ -178,17 +183,23 @@ function draw() {
 
     //OBSTACLES!==============================================
     if(obstacleTimer < 0) {
+      //check if we want it to go faster
+      if(speedTimer > 1000) {
+        speedTimer = 0;
+        lasers.laserSpeed += 1;
+      }
+
       //generate obstacle
       let random = Math.floor(Math.random() * 2) + 1;
       console.log(random);
       switch(random) {
         case 1:
           //horizontal laser
-          lasers.speed1 = 5;
+          lasers.speed1 = lasers.laserSpeed;
           break;
         case 2:
           //vertical laser
-          lasers.speed2 = 5;
+          lasers.speed2 = lasers.laserSpeed;
           break;
       }
       
@@ -199,7 +210,15 @@ function draw() {
       obstacleTimer--;
     }
 
+    speedTimer++;
+    console.log("speedTimer: " + speedTimer);
 
+    scoreTimer++;
+    if(scoreTimer > 5) {
+      score += 1;
+      console.log(score);
+      scoreTimer = 0;
+    }
   }
 
   if(gameState == 2) {
@@ -249,11 +268,18 @@ function playerMovement() {
 }
 
 function laserCollision() {
-  if(player.x >= lasers.x2 && player.x <= lasers.x2 + 20) {
+  //vertical laser
+  if(player.x + (player.width / 2) >= lasers.x2 && player.x <= lasers.x2 + 20) {
     if(player.y + player.height > lasers.y2 && player.y < (lasers.y2 + 200)) {
       gameState++;
     }
   }
+  //horizontal laser
+ if(player.x + (player.width/2) >= lasers.x1 && player.x + (player.width/2) <= (lasers.x1 + 200)) {
+   if((player.y + player.height) >= lasers.y1 && player.y <= (lasers.y1 + 20)) {
+     gameState++;
+   }
+ }
 }
 
 function deathCutscene() {
@@ -330,9 +356,11 @@ function drawEnvironment() {
 
   //Drawing obstacles
   //horizontal laser
-  ctx.fillStyle = "yellow";
+  ctx.fillStyle = "orange";
   lasers.x1 -= lasers.speed1;
   ctx.fillRect(lasers.x1, lasers.y1, 200, 20);
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(lasers.x1 + 5, lasers.y1 + 5, 190, 8);
   if(lasers.x1 + 200 < -30) {
     lasers.speed1 = 0;
     lasers.x1 = 900;
@@ -341,7 +369,10 @@ function drawEnvironment() {
 
   //vertical laser
   lasers.x2 -= lasers.speed2;
+  ctx.fillStyle = "orange";
   ctx.fillRect(lasers.x2, lasers.y2, 20, 200);
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(lasers.x2 + 5, lasers.y2 + 5, 10, 185);
   if(lasers.x2 + 20 < -30) {
     lasers.speed2 = 0;
     lasers.x2 = 900;
@@ -350,6 +381,12 @@ function drawEnvironment() {
 
   //Actually draw the player!===============================================
   ctx.drawImage(player.Img, player.x, player.y, player.width, player.height);
+  //ctx.fillStyle = "rgba(100, 100, 100, 0.8)";
+  //ctx.fillRect(player.x, player.y, player.width, player.height);
+
+  ctx.font = "15px Comic Sans MS";
+  ctx.fillStyle = "black";
+  ctx.fillText(score + "m", 10, 495);
 }
 
 function getRandomBackgroundobj() {
@@ -416,6 +453,10 @@ function setGameVariables() {
   lasers.y1 = 200;
   lasers.x2 = 900;
   lasers.y2 = 200;
-
+  lasers.laserSpeed = 5;
+  speedTimer = 0;
   obstacleTimer = 50;
+
+  scoreTimer = 0;
+  score = 0;
 }
