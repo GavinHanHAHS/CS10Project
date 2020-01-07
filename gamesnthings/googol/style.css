@@ -1,3 +1,8 @@
+* {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
 body {
   margin: 0;
 }
@@ -5,7 +10,39 @@ body {
 div.top-links {
   display: flex;
   flex-direction: row;
-  background-color: lightGrey;
+  justify-content: space-between;
+  background-color: white;
+  color: rgb(150, 150, 150);
+  margin: 10px 20px;
+}
+
+.left-top-links {
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.right-top-links {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.avatar {
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+.gLogo {
+  display: flex;
+  justify-content: center;
+  margin-top: 125px;
+}
+
+.searchInput {
+  /* change color of input border */
 }
 
 .header-container {
