@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #0B3C49;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-link {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}

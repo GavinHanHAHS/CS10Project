@@ -53,6 +53,10 @@ div.contentItem.trigSolve {
   background-color: red;
 }
 
+div.contentItem.scoop {
+  background-color: limegreen;
+}
+
 hr {
   margin: 0;
   height: 10px;

@@ -270,13 +270,13 @@ function playerMovement() {
 function laserCollision() {
   //vertical laser
   if(player.x + (player.width / 2) >= lasers.x2 && player.x <= lasers.x2 + 20) {
-    if(player.y + player.height > lasers.y2 && player.y < (lasers.y2 + 200)) {
+    if(player.y + player.height > lasers.y2 && player.y + 10 < (lasers.y2 + 200)) {
       gameState++;
     }
   }
   //horizontal laser
  if(player.x + (player.width/2) >= lasers.x1 && player.x + (player.width/2) <= (lasers.x1 + 200)) {
-   if((player.y + player.height) >= lasers.y1 && player.y <= (lasers.y1 + 20)) {
+   if((player.y + player.height) >= lasers.y1 && player.y + 10 <= (lasers.y1 + 20)) {
      gameState++;
    }
  }

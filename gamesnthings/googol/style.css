@@ -41,8 +41,105 @@ div.top-links {
   margin-top: 125px;
 }
 
+.searchBar {
+  font-size: 18px;
+  width: 530px;
+  margin: auto;
+  margin-top: 20px;
+}
+
 .searchInput {
-  /* change color of input border */
+  height: 45px;
+  width: 450px;
+  border: 1px solid lightgrey;
+  background-image: url("../../media/magnifyingGlass.png"), url("../../media/google_mic.png");
+  background-position: 15px 15px, 460px 12px;
+  background-repeat: no-repeat;
+  background-size: 17px, 23px;
+  padding-left: 50px;
+  border-radius: 20px;
+  margin: auto;
+  font-size: 18px;
+}
+
+.searchInput:focus {
+  border: 1px solid gray;
+  outline: none;
+}
+
+.searchInput:hover {
+  border: 1px solid gray;
+}
+
+.buttons {
+  width: 350px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+button {
+  background-color: "rgb(150, 150, 150)";
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  color: grey;
+}
+
+.french {
+  width: 225px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.francais {
+  color: blue;
+}
+
+.francais:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.canada {
+  border: 1px solid lightgrey;
+  padding: 20px 10px;
+  background-color: rgb(240, 240, 240);
+  margin-top: 323px;
+  width: 100%;
+  padding-left: 15px;
+  box-sizing: border-box;
+  color: rgb(150, 150, 150);
+}
+
+.bottom {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  background-color: rgb(240, 240, 240);
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  color: rgb(150, 150, 150);
+}
+
+.leftBottom {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.rightBottom {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 100px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
 .header-container {
