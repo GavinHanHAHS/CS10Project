@@ -3,39 +3,79 @@
 let cnv = document.getElementById("game");
 let ctx = cnv.getContext("2d");
 
+let keydown = false;
+
+document.addEventListener("keydown", playerInput);
+
 cnv.width = 800;
 cnv.height = 450;
 
 requestAnimationFrame(mainLoop);
 
 function mainLoop() {
-    //draw the background==============================
-    ctx.fillStyle = "rgb(10, 40, 150)";
-    ctx.fillRect(0, 0, 800, 450);
-    ctx.fillStyle = "rgb(20, 173, 238)";
-    ctx.fillRect(0, 350, 800, 100);
-    ctx.fillStyle = "rgb(20, 140, 200)";
-    ctx.fillRect(0, 390, 800, 60);
+  drawBackground();
 
-    //draw guy ghaiyu==================================
-    //head
-    ctx.fillStyle = "rgb(255, 240, 162)";
-    ctx.beginPath();
-    ctx.arc(640, 120, 60, 0, 2*Math.PI);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(580, 120);
-    ctx.lineTo(600, 200);
-    ctx.lineTo(680, 200);
-    ctx.lineTo(700, 120);
-    ctx.fill();
 
-    //neckkk
-    ctx.beginPath();
-    ctx.moveTo(660, 200);
-    ctx.lineTo(690, 260);
-    ctx.lineTo(710, 260);
-    ctx.lineTo(680, 200);
-    ctx.fill();
+
+
+
+
+
+
+
+} 
+
+function drawBackground() {
+  //draw the background==============================
+  ctx.fillStyle = "rgb(64, 210, 210)";
+  ctx.fillRect(0, 0, 800, 450);
+  ctx.fillStyle = "rgb(255, 219, 98)";
+  ctx.fillRect(0, 250, 800, 200);
+  ctx.fillStyle = "rgb(255, 211, 64)";
+  ctx.fillRect(0, 390, 800, 60);
+
+  
+  //foreground cactus
+  ctx.fillStyle = "green";
+  ctx.beginPath();
+  ctx.arc(120, 230, 10, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillRect(110, 230, 20, 50);
+  ctx.beginPath();
+  ctx.arc(120, 280, 10, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillRect(120, 270, 30, 20);
+  ctx.fillRect(150, 190, 35, 150);
+  ctx.beginPath();
+  ctx.arc(167.5, 190, 17.5, 0, 2 * Math.PI);
+  ctx.fill();
+  
+  //background cactus
+  ctx.beginPath();
+  ctx.arc(650, 180, 5, 0, 2 * Math.PI); //top of main body
+  ctx.fill();
+  ctx.fillRect(645, 180, 10, 90); //main body
+  ctx.beginPath();
+  ctx.arc(670, 180, 3, 0, 2 * Math.PI); //top right top
+  ctx.fill();
+  ctx.fillRect(667, 180, 6, 20); //right
+  ctx.beginPath();
+  ctx.arc(670, 200, 3, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillRect(645, 197, 23, 6);
+  ctx.beginPath();
+  ctx.arc(625, 185, 3, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillRect(622, 185, 6, 30);
+  ctx.beginPath();
+  ctx.arc(625, 215, 3, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillRect(625, 212.5, 25, 6);
+}
+
+function playerInput(event) {
+  if(event.code == "Space") {
+    keydown = true;
+  }
 }
 
