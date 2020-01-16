@@ -8,6 +8,12 @@ let adj = document.getElementById("adj");
 let theta = document.getElementById("theta");
 let output = document.getElementById("text");
 
+let oppVal;
+let adjVal;
+let hypVal;
+let thetaVal;
+let outputVal;
+
 function solveTrigFunction() {
   console.log(toSolve.value);
 
@@ -24,7 +30,21 @@ function solveTrigFunction() {
       c = Math.pow(c, 0.5);
       output.innerHTML = c;
     } else if(theta.value && opp.value || adj.value) {
-      
+      if(opp.value) {
+        oppVal = opp.value;
+        thetaVal = theta.value;
+        outputVal = oppVal / (Math.sin(thetaVal * (Math.PI / 180)));
+        outputVal = (Math.floor(outputVal * 100)) / 100;
+        output.innerHTML = outputVal;
+      } else {
+        adjVal = adj.val;
+        thetaVal = theta.value;
+        outputVal = adjVal / (Math.cos(thetaVal * (Math.PI / 180)));
+        outputVal = (Math.floor(outputVal * 100)) / 100;
+        output.innerHTML = outputVal;
+      }
+    } else {
+      output.innerHTML = "I have no idea how to solve this lol";  //doesn't account for edge cases like >90 deg
     }
   } else if(toSolve.value == 2) {                                 //opposite
 

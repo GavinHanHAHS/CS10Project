@@ -10,6 +10,8 @@
 
 body {
   background-color: white;
+  background-image: url("media/compLab.png");
+  background-attachment: fixed;
 }
 
 a {
@@ -47,8 +49,8 @@ a:hover {
 
 .title {
   display: flex;
-  background-color: #64B6AC;
-  height: 200px;
+  background-color: rgba(5, 5, 5, 0.5);
+  height: 500px;
   justify-content: center;
   align-items: center;
   flex-direction: column;

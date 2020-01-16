@@ -2,7 +2,10 @@ div.main {
   width: 600px;
   height: 600px;
   margin: auto;
+  margin-top: 80px;
   text-align: center;
+  background-color: #800000;
+  border-radius: 22px;
 }
 
 .header-container {
@@ -31,6 +34,24 @@ div.main {
   color: white;
   text-decoration: none;
   margin: 0;
+}
+
+.trigTriangle {
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding-right: 20px;
+  margin-top: 30px;
+  background-color: white;
+}
+
+.inputs {
+  background-color: white;
+  width: 200px;
+  margin: auto;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding-bottom: 15px;
+  padding-top: 5px;
 }
 
 body {
