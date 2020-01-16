@@ -4,6 +4,7 @@ let cnv = document.getElementById("game");
 let ctx = cnv.getContext("2d");
 
 let keydown = false;
+let gamestate = 0;
 
 document.addEventListener("keydown", playerInput);
 
@@ -15,6 +16,13 @@ requestAnimationFrame(mainLoop);
 function mainLoop() {
   drawBackground();
 
+  if(gamestate == 0) {
+    ctx.fillStyle = "lime";
+    ctx.fillRect(325, 200, 150, 45);
+    ctx.fillStyle = "black";
+    ctx.font = "35px Arial";
+    ctx.fillText("Start", 360, 237);
+  }
 
 
 
@@ -56,21 +64,21 @@ function drawBackground() {
   ctx.fill();
   ctx.fillRect(645, 180, 10, 90); //main body
   ctx.beginPath();
-  ctx.arc(670, 180, 3, 0, 2 * Math.PI); //top right top
+  ctx.arc(665, 180, 3, 0, 2 * Math.PI); //top right top
   ctx.fill();
-  ctx.fillRect(667, 180, 6, 20); //right
+  ctx.fillRect(662, 180, 6, 20); //right
   ctx.beginPath();
-  ctx.arc(670, 200, 3, 0, 2 * Math.PI);
+  ctx.arc(665, 200, 3, 0, 2 * Math.PI); //right side bottom
   ctx.fill();
   ctx.fillRect(645, 197, 23, 6);
   ctx.beginPath();
-  ctx.arc(625, 185, 3, 0, 2 * Math.PI);
+  ctx.arc(635, 185, 3, 0, 2 * Math.PI);
   ctx.fill();
-  ctx.fillRect(622, 185, 6, 30);
+  ctx.fillRect(632 , 185, 6, 30);
   ctx.beginPath();
-  ctx.arc(625, 215, 3, 0, 2 * Math.PI);
+  ctx.arc(635, 215, 3, 0, 2 * Math.PI);
   ctx.fill();
-  ctx.fillRect(625, 212.5, 25, 6);
+  ctx.fillRect(635, 212.5, 19, 6);
 }
 
 function playerInput(event) {
