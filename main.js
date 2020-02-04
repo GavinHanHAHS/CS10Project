@@ -3,6 +3,7 @@
 document.getElementById("doodooface").addEventListener("click", executePlanDooDoo);
 document.getElementById("biggiecheese").addEventListener("click", executeplanCheese);
 
+
 let biggiecheese = 0;
 let doodooState = 0;
 
