@@ -103,3 +103,45 @@ a:hover {
 .MenuItem.InClass {
   background-color: rgb(40, 100, 70);
 }
+
+.GamesRowOne {
+  display: flex;
+  height: 415px;
+}
+
+.GamesRowOneItem {
+  width: 16.67%;
+  background-color: #334A52;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.GamesRowOneItem.darker {
+  background-color: rgb(42, 62, 68);
+}
+
+.GamesRowOneImage {
+  padding: 20px 0;
+}
+
+.GamesRowOneText {
+  padding: 0 10px;
+}
+
+.line {
+  background-color: white;
+  width: 1px;
+}
+
+#GamesContent {
+  display: none;
+}
+
+#FuncWebContent {
+  display: none;
+}
+
+#RandStuffContent {
+  display: none;
+}
