@@ -47,16 +47,19 @@ function changeTab() {
   HideTabs();
   if(nextTab == 0) {
     document.getElementById("InClass").style.backgroundColor = "rgb(40, 100, 70)";
-    document.getElementById("InClassContent").style.display = 
+    document.getElementById("InClassContent").style.display = "block";
     currentTab = 0;
   } else if(nextTab == 1) {
     document.getElementById("Games").style.backgroundColor = "rgb(40, 100, 70)";
+    document.getElementById("GamesContent").style.display = "block";
     currentTab = 1;
   } else if(nextTab == 2) {
     document.getElementById("FuncWeb").style.backgroundColor = "rgb(40, 100, 70)";
+    document.getElementById("FuncWebContent").style.display = "block";
     currentTab = 2;
   } else if(nextTab == 3) {
     document.getElementById("RandStuff").style.backgroundColor = "rgb(40, 100, 70)";
+    document.getElementById("RandStuffContent").style.display = "block";
     currentTab = 3;
   }
 
