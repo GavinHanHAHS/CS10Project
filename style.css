@@ -107,6 +107,7 @@ a:hover {
 .GamesRowOne {
   display: flex;
   height: 415px;
+  background-color: rgb(42, 62, 68);
 }
 
 .GamesRowOneItem {
@@ -132,6 +133,8 @@ a:hover {
 .line {
   background-color: white;
   width: 1px;
+  height: 75%;
+  margin-top: 50px;
 }
 
 #GamesContent {

@@ -6,7 +6,14 @@ let ctx = cnv.getContext("2d");
 let keydown = false;
 let gamestate = 0;
 
+let mouseX;
+let mouseY;
+let mouseIsPressed = false;
+
 document.addEventListener("keydown", playerInput);
+document.addEventListener("mousemove", mousemoveHandler);
+document.addEventListener("mousedown", mousedownHandler);
+document.addEventListener("mouseup", mouseupHandler);
 
 cnv.width = 800;
 cnv.height = 450;
@@ -14,23 +21,39 @@ cnv.height = 450;
 requestAnimationFrame(mainLoop);
 
 function mainLoop() {
-  drawBackground();
 
   if(gamestate == 0) {
+    drawBackground();
+    //draw the big start button.
     ctx.fillStyle = "lime";
     ctx.fillRect(325, 200, 150, 45);
     ctx.fillStyle = "black";
     ctx.font = "35px Arial";
     ctx.fillText("Start", 360, 237);
+
+    ctx.fillStyle = "white";
+    ctx.fillText("X: " + mouseX, 5, 35);
+    ctx.fillText("Y: " + mouseY, 5, 75);
+
+    if(mouseIsPressed && mouseX >= 325 && mouseY >= 202 && mouseX <= 475 && mouseY <= 244) {
+      gamestate++;
+    }
+  }
+
+  if(gamestate == 1) {
+    drawBackground();
+
+    ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
+    ctx.beginPath();
+    ctx.arc(400, 200, 175, 0, 2 * Math.PI);
+    ctx.fill();
   }
 
 
 
 
 
-
-
-
+  requestAnimationFrame(mainLoop);
 } 
 
 function drawBackground() {
@@ -87,3 +110,17 @@ function playerInput(event) {
   }
 }
 
+function mousemoveHandler(event) {
+  let cnvRect = cnv.getBoundingClientRect();
+
+  mouseX = Math.round(event.clientX - cnvRect.left);
+  mouseY = Math.round(event.clientY - cnvRect.top);
+}
+
+function mousedownHandler() {
+  mouseIsPressed = true;
+}
+
+function mouseupHandler() {
+  mouseIsPressed = false;
+}
