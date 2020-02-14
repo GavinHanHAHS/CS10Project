@@ -5,10 +5,27 @@ let ctx = cnv.getContext("2d");
 
 let keydown = false;
 let gamestate = 0;
+let score = 0;
 
 let mouseX;
 let mouseY;
 let mouseIsPressed = false;
+
+let object = {
+  x1: 420,
+  y1: 300,
+  direction1: 1,
+  x2: 250,
+  y2: 330,
+  direction2: 1,
+  counter2: 0,
+  x3: 600,
+  y3: 340,
+  direction3: -1
+};
+
+let dynamiteImg = document.getElementById("dynamite");
+let checked = false;
 
 document.addEventListener("keydown", playerInput);
 document.addEventListener("mousemove", mousemoveHandler);
@@ -43,12 +60,71 @@ function mainLoop() {
   if(gamestate == 1) {
     drawBackground();
 
+    ctx.drawImage(dynamiteImg, 350, 300, 75, 25);
+
     ctx.fillStyle = "rgba(255, 255, 255, 0.3)"
     ctx.beginPath();
     ctx.arc(400, 200, 175, 0, 2 * Math.PI);
     ctx.fill();
+    
+    //first object
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(object.x1, object.y1, 40, 0, 2 * Math.PI);
+    ctx.fill();
+
+    if(object.direction1 == 1 && object.x1 > 669) {
+      object.direction1 = -1;
+    } else if (object.direction1 == -1 && object.x1 < 100) {
+      object.direction1 = 1;
+    }
+    
+    object.x1 += 2 * object.direction1;
+
+    //second object
+    ctx.fillStyle = "purple";
+    ctx.beginPath();
+    ctx.arc(object.x2, object.y2, 25, 0, 2 * Math.PI);
+    ctx.fill();
+
+    if(object.counter2 >= 30) {
+      object.x2 += 75 * object.direction2;
+      object.counter2 = 0;
+    }
+
+    object.counter2++;
+    
+    if(object.x2 >= 650) {
+      object.direction2 = -1;
+    } else if(object.x2 <= 200) {
+      object.direction2 = 1;
+    }
+
+    //third object
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(object.x3, object.y3, 35, 0, 2 * Math.PI);
+    ctx.fill();
+
+    object.x3 += 7 * object.direction3;
+
+    if(object.x3 >= 725) {
+      object.direction3 = -1;
+    } else if(object.x3 <= 45) {
+      object.direction3 = 1;
+    }
+
+    if(keydown == true) {
+      gamestate++;
+    }
   }
 
+  if(gamestate == 2) {
+    score = 0;
+    
+    checkObjects();
+    displayScore();
+  }
 
 
 
@@ -123,4 +199,39 @@ function mousedownHandler() {
 
 function mouseupHandler() {
   mouseIsPressed = false;
+}
+
+function checkObjects() {
+  if(checked == false) {
+    checked = true;
+
+    //check first object
+    checkOneObject(object.x1, object.y1, 40);
+
+    //check second object
+    checkOneObject(object.x2, object.y2, 25);
+
+    //check third object
+    checkOneObject(object.x3, object.y3, 35);
+
+    console.log(score);
+
+    //display score to user
+    ctx.fillStyle = "white";
+    ctx.fillText("YOUR SCORE:", 250, 220);
+    ctx.fillText(score, 500, 220);
+  }
+}
+
+function checkOneObject(x, y, radius) {
+  //set a and b for pythagoras
+  let a = 400 - x;
+  let b = 200 - y;
+  //do pythagoras
+  let c = Math.hypot(a, b);
+  console.log(c);
+  //add score if c is less than both radii.
+  if(c <= (175 + radius)) {
+    score++;
+  }
 }
