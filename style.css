@@ -1,5 +1,10 @@
 /* color pallete: https://coolors.co/0b3c49-64b6ac-c0fdfb-b9d6f2-fcfffd */
 
+/* .scroller {
+  scrollbar-color: #0A4C95 #C2D2E4;
+  scrollbar-width: thin;
+} (only works in firefox)*/ 
+
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +17,7 @@ body {
   background-color: white;
   background-image: url("media/compLab.png");
   background-attachment: fixed;
+  text-align: center;
 }
 
 a {
@@ -104,37 +110,53 @@ a:hover {
   background-color: rgb(40, 100, 70);
 }
 
-.GamesRowOne {
+.sectionRow {
   display: flex;
   height: 415px;
   background-color: rgb(42, 62, 68);
+  width: 100%;
+  flex-shrink: 0;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.GamesRowOneItem {
+.sectionItem {
   width: 16.67%;
   background-color: #334A52;
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
-.GamesRowOneItem.darker {
+.sectionItem.darker {
   background-color: rgb(42, 62, 68);
 }
 
-.GamesRowOneImage {
-  padding: 20px 0;
+.itemImage {
+  padding: 15px 0;
+  width: 80%;
 }
 
-.GamesRowOneText {
+.itemText {
   padding: 0 10px;
+  overflow-x: visible;
+  white-space: normal;
 }
 
 .line {
-  background-color: white;
-  width: 1px;
+  border-left: 1px solid white;
   height: 75%;
   margin-top: 50px;
+}
+
+.itemTitle {
+  margin-bottom: 7px;
+}
+
+.bottomText {
+  margin-top: 25px;
+  color: black;
 }
 
 #GamesContent {
