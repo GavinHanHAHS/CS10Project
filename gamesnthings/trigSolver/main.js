@@ -47,7 +47,7 @@ function solveTrigFunction() {
       output.innerHTML = "I have no idea how to solve this lol";  //doesn't account for edge cases like >90 deg
     }
   } else if(toSolve.value == 2) {                                 //opposite
-
+    
   } else if(toSolve.value == 3) {                                 //adjacent
 
   } else if(toSolve.value == 4) {                                 //other angle

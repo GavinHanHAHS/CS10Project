@@ -4,6 +4,7 @@ let cnv = document.getElementById("game");
 let ctx = cnv.getContext("2d");
 
 let keydown = false;
+let resetkey = false;
 let gamestate = 0;
 let score = 0;
 
@@ -25,6 +26,7 @@ let object = {
 };
 
 let dynamiteImg = document.getElementById("dynamite");
+let explosionImg = document.getElementById("explosion")
 let checked = false;
 
 document.addEventListener("keydown", playerInput);
@@ -123,7 +125,10 @@ function mainLoop() {
     score = 0;
     
     checkObjects();
-    displayScore();
+    if(resetkey == true) {
+      resetVariables();
+      gamestate = 0;
+    }
   }
 
 
@@ -183,6 +188,8 @@ function drawBackground() {
 function playerInput(event) {
   if(event.code == "Space") {
     keydown = true;
+  } else if(event.code == "Enter") {
+    resetkey = true;
   }
 }
 
@@ -205,6 +212,9 @@ function checkObjects() {
   if(checked == false) {
     checked = true;
 
+    //draw explosion on circle
+    ctx.drawImage(explosionImg, 165, -10, 450, 450);
+
     //check first object
     checkOneObject(object.x1, object.y1, 40);
 
@@ -217,9 +227,11 @@ function checkObjects() {
     console.log(score);
 
     //display score to user
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.fillText("YOUR SCORE:", 250, 220);
     ctx.fillText(score, 500, 220);
+    ctx.font = "20px Arial"
+    ctx.fillText("Press enter to reset", 300, 240);
   }
 }
 
@@ -233,5 +245,23 @@ function checkOneObject(x, y, radius) {
   //add score if c is less than both radii.
   if(c <= (175 + radius)) {
     score++;
+    ctx.drawImage(explosionImg, x - 70, y - 70, 150, 150)
   }
+}
+
+function resetVariables() {
+  keydown = false;
+  resetkey = false;
+  checked = false;
+  score = 0;
+  object.x1 = 420;
+  object.y1 = 300;
+  object.direction1 = 1;
+  object.x2 = 250;
+  object.y2 = 330;
+  object.direction2 = 1;
+  object.counter2 = 0;
+  object.x3 = 600;
+  object.y3 = 340;
+  object.direction3 = -1;
 }

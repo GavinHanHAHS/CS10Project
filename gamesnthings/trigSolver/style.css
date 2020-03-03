@@ -56,4 +56,8 @@ div.main {
 
 body {
   margin: 0;
+  background-image: url("../../media/mathclass.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
