@@ -10,6 +10,8 @@ cnv.width = 900;
 cnv.height = 600;
 
 let potionBookUp = false;
+let potionBookHeight = 700;
+let bookSpeed = 5;
 
 document.addEventListener("mousemove", mousemoveHandler);
 document.addEventListener("click", clickHandler);
@@ -44,6 +46,10 @@ function drawBackground() {
   ctx.beginPath();
   ctx.arc(cnv.width / 2, 400, 100, 0, 2 * Math.PI);
   ctx.fill();
+
+  //draw potion book
+  ctx.fillStyle = "brown";
+  ctx.fillRect(100, potionBookHeight, 700, 400);
 }
 
 function potionMagic() {
@@ -60,13 +66,25 @@ function potionBook() {
     ctx.fillStyle = "lime";
     ctx.font = "35px Arial";
     ctx.fillText("Open Book", 710, 585);
+
+    if(potionBookHeight < 700) {
+      bookSpeed++;
+      potionBookHeight += bookSpeed;
+    } else {
+      bookSpeed = 5;
+    }
   } else {
     ctx.fillStyle = "lime";
     ctx.font = "35px Arial";
     ctx.fillText("Close Book", 710, 585);
 
-    ctx.fillStyle = "brown";
-    ctx.fillRect(100, 100, 700, 400);
+    if(potionBookHeight > 100) {
+      bookSpeed++;
+      potionBookHeight -= bookSpeed;
+    } else {
+      bookSpeed = 5
+    }
+    
   }
 
   
