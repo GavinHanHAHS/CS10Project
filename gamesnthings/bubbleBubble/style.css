@@ -8,6 +8,10 @@ body {
   text-align: center;
 }
 
+img {
+  display: none;
+}
+
 .header-container {
   display: flex;
   justify-content: center;
